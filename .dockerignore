@@ -1,0 +1,11 @@
+**/node_modules/
+**/dist
+**/.git
+**/.vscode
+**/.git
+**/__test__/
+**/.coverage
+**/.coverage.*
+**/.env
+.dockerignore
+Dockerfile
