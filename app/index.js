@@ -136,6 +136,21 @@ app.get("/hi/:who", (req, res) => {
 });
 
 
+/************************************************************************************/
+/*  Route based Middleware, with regex - Executed only for GET at /api/zip/12345    */
+/*  It does NOT affect or change the request                                        */
+/*  It does affect the response to the client                                       */
+/*  When applies, it would be the last executed middleware                          */
+/************************************************************************************/
+app.get(/^\/api\/zip\/(\d{5})$/, (req, res, next) => {
+  const zipcode = req.params[0];
+
+  const temperature = Math.floor(Math.random() * (40 - 5 + 1)) + 5;
+
+  res.json({ zipcode: zipcode, temperature: temperature });
+});
+
+
 /**********************************************************************/
 /*  Default Route Middleware - Executed for any othe request          */
 /*  It does NOT affect or change the request                          */
